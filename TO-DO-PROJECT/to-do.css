@@ -1,10 +1,12 @@
+/* Global reset */
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Ppppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
+/* Container */
 .container{
     width: 100%;
     min-height: 100vh; 
@@ -12,14 +14,19 @@
     background-color: rgba(129, 126, 126, 0.5);
     padding: 10px;
 } 
+
+/* Todo app box */
 .todo-app{
     width: 100%;
-    max-width: 540px;
+    max-width: 600px;
     background: #fff;
-    margin: 100px auto 20px;
+    margin: 50px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+/* Title */
 .todo-app h2{
     font-family: 'Dancing Script', cursive;
     color: #002765;
@@ -31,6 +38,8 @@
     width: 30px;
     margin-left: 10px;
 }
+
+/* Input row */
 .row{
     display: flex;
     align-items: center;
@@ -38,15 +47,15 @@
     background: #edeef0;
     border-radius: 30px;
     padding-left: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
-input{
+input#input-box{
     flex:1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;
+    font-size: 16px;
 }
 button{
     border: none;
@@ -58,45 +67,95 @@ button{
     cursor: pointer;
     border-radius: 40px;
 }
-ul li{
+
+/* Search box */
+#search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Clear All button */
+#clear-all {
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 25px;
+    background: #ff5945;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Task list */
+ul{
+    padding: 0;
+}
+
+/* Each task */
+ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 12px 50px;
+    padding: 12px 10px;
     user-select: none;
     cursor: pointer;
     position: relative;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
-ul li::before{
-    content: '';
-    position:absolute;
-    height:28px;
-    width:28px;
-    border-radius: 50%;
-    background-image: url(unchecked.png);
-    background-size: cover;
-    background-position: center;
-    top:12px;
-    left:8px;
-}
-ul li.checked{
-    color:#555;
-    text-decoration: line-through;
 
+ul li:hover{
+    background: #f0f0f0;
 }
-ul li.checked::before{
-    background-image: url(checked.png);
+
+/* Task text */
+ul li .task-text {
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-word;
 }
-ul li span{
-    position:absolute;
-    right:0;
-    top:5px;
-    width:40px;
-    height:40px;
+
+/* Priority dropdown */
+ul li select {
+    margin-right: 10px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Due date */
+ul li input[type="date"] {
+    margin-right: 10px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Delete button */
+ul li span {
+    color: #555;
     font-size: 22px;
-    color:#555;
-    line-height:40px;
-    text-align: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
 }
-ul li span:hover{
-    background: #edeef0;
+
+ul li span:hover {
+    color: red;
+}
+
+/* Checked task */
+ul li.checked .task-text {
+    text-decoration: line-through;
+    color: #555;
 }
