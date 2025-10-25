@@ -9,15 +9,25 @@
 <body>
     <div class="container">
         <div class="todo-app">
-            <h2>TO-DO List <img src="icon.png"></h2>
-        <div class="row">
-            <input type="text" id="input-box" placeholder="Add your Task">
-            <button onclick="addTask()">Add</button>
-        </div>
-        <ul id="list-container">
-        </ul>
+            <h2>TO-DO List <img src="icon.png" alt="icon"></h2>
+
+            <!-- Input row -->
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your Task">
+                <button onclick="addTask()">Add</button>
+            </div>
+
+            <!-- Search box -->
+            <input type="text" id="search-box" placeholder="Search tasks...">
+
+            <!-- Task list -->
+            <ul id="list-container"></ul>
+
+            <!-- Clear all button -->
+            <button id="clear-all">Clear All</button>
         </div>
     </div>
-<script src="to-do.js"></script>
+
+    <script src="to-do.js"></script>
 </body>
 </html>
